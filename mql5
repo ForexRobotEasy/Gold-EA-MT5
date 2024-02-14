@@ -1,0 +1,81 @@
+
+//+------------------------------------------------------------------+
+//|                                                   Gold EA MT5     |
+//|                                      Developer: Forex Robot Easy Team |
+//|                                      Developer's Site: forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+// Define input parameters
+input double InitialDeposit = 250.0; // Initial deposit in USD
+input double InitialLots = 0.01; // Initial lots
+input double HiddenStopLoss = 500.0; // Hidden stop loss in points
+input double MaxDrawdown = 0.1; // Maximum allowed drawdown percentage
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set initial account balance
+    double accountBalance = AccountBalance();
+    if (accountBalance < InitialDeposit)
+    {
+        Print('Insufficient account balance. Please deposit at least ', InitialDeposit, ' USD.');
+        return INIT_FAILED;
+    }
+    
+    // Set initial lots size
+    double lots = NormalizeDouble(InitialLots, MarketInfo(Symbol(), MODE_LOTSIZE));
+    
+    // Set hidden stop loss
+    double stopLoss = SymbolInfoDouble(Symbol(), SYMBOL_POINT) * HiddenStopLoss;
+    
+    // Set maximum drawdown
+    double maxDrawdown = AccountBalance() * MaxDrawdown;
+    
+    // Print initial settings
+    Print('Initial Deposit: ', InitialDeposit, ' USD');
+    Print('Initial Lots: ', lots);
+    Print('Hidden Stop Loss: ', stopLoss);
+    Print('Max Drawdown: ', maxDrawdown);
+    
+    // Add necessary code for indicator initialization
+    
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Add necessary code for indicator calculation and grid system
+    
+    // Add necessary code for opening and managing positions
+    
+    // Add necessary code for hidden stop loss implementation
+    
+    // Add necessary code for closing positions when reaching maximum drawdown
+    
+    // Add necessary code for position trailing stop
+    
+    // Add necessary code for position take profit
+    
+    // Add necessary code for position modification
+    
+    // Add necessary code for position closing
+    
+    // Add necessary code for logging and error handling
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add necessary code for indicator deinitialization
+    
+    // Add necessary code for closing any open positions
+    
+    // Add necessary code for logging and finalizing
+}
